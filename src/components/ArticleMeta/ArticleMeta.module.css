@@ -1,0 +1,25 @@
+.meta {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .wrapper {
+    display: flex;
+    gap: 16px;
+  }
+  
+  .info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .created {
+    color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .menu {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+  }
+  
