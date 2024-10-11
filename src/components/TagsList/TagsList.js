@@ -1,6 +1,6 @@
 import { Tag } from 'antd';
 
-import classes from './TagsList.module.css';
+import classes from './TagsList.module.scss';
 
 const TagsList = ({ tags }) => {
   return (

@@ -38,7 +38,7 @@ const EditProfile = () => {
   const { user, success } = useSelector((state) => state.user);
   const { control, handleSubmit } = useForm({ mode: 'onBlur', resolver: yupResolver(schema) });
   const navigate = useNavigate();
-
+  const placeholderImage = 'https://static.productionready.io/images/smiley-cyrus.jpg';
   const initialValues = {
     username: user.username || '',
     email: user.email || '',
@@ -51,15 +51,28 @@ const EditProfile = () => {
     }
   }, [success, dispatch, navigate]);
 
-  const onSubmit = (data) => {
+  const isImageValid = (url) => {
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.src = url;
+      img.onload = () => resolve(true);
+      img.onerror = () => resolve(false);
+    });
+  };
+
+  const onSubmit = async (data) => {
+    const imageUrl = data.image || user.image;
+    const isValidImage = await isImageValid(imageUrl);
+
     const newUser = {
       user: {
         username: data.username || user.username,
         email: data.email.toLowerCase() || user.email,
         password: data.password || user.password,
-        image: data.image || user.image,
+        image: isValidImage ? imageUrl : placeholderImage,
       },
     };
+
     dispatch(
       updateUser({
         token: user.token,

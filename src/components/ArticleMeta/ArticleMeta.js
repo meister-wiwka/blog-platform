@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import { changeSuccess, deleteArticle } from '../../redux/slices/articlesSlice';
 
-import classes from './ArticleMeta.module.css';
+import classes from './ArticleMeta.module.scss';
 
 const { confirm } = Modal;
 

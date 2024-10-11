@@ -1,7 +1,7 @@
 import { Controller } from 'react-hook-form';
 import { Input } from 'antd';
 
-import classes from './ControlledInput.module.css';
+import classes from './ControlledInput.module.scss';
 
 const ControlledInput = ({ control, type, name, placeholder, defaultValue = '', label = null }) => {
   return (

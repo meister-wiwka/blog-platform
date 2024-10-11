@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { ArticleDescription } from '../ArticleDescription';
 import { ArticleMeta } from '../ArticleMeta';
 
-import classes from './ArticleInfo.module.css';
+import classes from './ArticleInfo.module.scss';
 
 const ArticleInfo = ({ articleItem, single = false }) => {
   const { article } = useSelector((state) => state.articles);

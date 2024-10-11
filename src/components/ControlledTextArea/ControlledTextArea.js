@@ -1,7 +1,7 @@
 import { Controller } from 'react-hook-form';
 import { Input } from 'antd';
 
-import classes from './ControlledTextArea.module.css';
+import classes from './ControlledTextArea.module.scss';
 const { TextArea } = Input;
 
 const ControlledTextArea = ({ control, name, placeholder, defaultValue = '' }) => {

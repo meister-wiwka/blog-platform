@@ -62,6 +62,9 @@ export const deleteArticle = createAsyncThunk(
 export const rateArticle = createAsyncThunk(
   'articles/rateArticle',
   async function ({ slug, token }, { rejectWithValue, dispatch }) {
+    if (!token) {
+      return rejectWithValue('User not authenticated');
+    }
     try {
       const res = await kataService.rateArticle(slug, token);
       if (res.article) {
@@ -77,6 +80,9 @@ export const rateArticle = createAsyncThunk(
 export const unRateArticle = createAsyncThunk(
   'articles/unRateArticle',
   async function ({ slug, token }, { rejectWithValue, dispatch }) {
+    if (!token) {
+      return rejectWithValue('User not authenticated');
+    }
     try {
       const res = await kataService.unRateArticle(slug, token);
       if (res.article) {

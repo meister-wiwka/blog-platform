@@ -4,13 +4,14 @@ import { Link, Outlet } from 'react-router-dom';
 
 import { logOut } from '../../redux/slices/userSlice';
 
-import classes from './AppLayout.module.css';
+import classes from './AppLayout.module.scss';
+import { ROUTES } from '../../routes';
 
 const AppLayout = () => {
   return (
     <div className={classes.app}>
       <header className={classes.header}>
-        <Link to="/">
+        <Link to={ROUTES.HOME}>
           <Button size="large" type="link">
             Realworld Blog
           </Button>

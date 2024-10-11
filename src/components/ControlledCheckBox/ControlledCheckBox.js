@@ -1,7 +1,7 @@
 import { Controller } from 'react-hook-form';
 import { Checkbox } from 'antd';
 
-import classes from './ControlledCheckBox.module.css';
+import classes from './ControlledCheckBox.module.scss';
 
 const ControlledCheckBox = ({ control, name, text }) => {
   return (

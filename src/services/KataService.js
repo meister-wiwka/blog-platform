@@ -1,5 +1,5 @@
 class KataService {
-    baseURL = 'https://blog.kata.academy/api';
+    baseURL = 'https://blog-platform.kata.academy/api';
   
     async sendRequest(url, method, body = null, token = null) {
       const headers = { 'Content-Type': 'application/json' };

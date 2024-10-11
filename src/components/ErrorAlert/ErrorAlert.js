@@ -1,4 +1,4 @@
-import classes from './ErrorAlert.module.css';
+import classes from './ErrorAlert.module.scss';
 
 const ErrorAlert = ({ error, type = 'default' }) => {
   const messages = Object.entries(JSON.parse(error));

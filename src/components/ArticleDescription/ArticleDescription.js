@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { rateArticle, unRateArticle } from '../../redux/slices/articlesSlice';
 import { TagsList } from '../TagsList';
 
-import classes from './ArticleDescription.module.css';
+import classes from './ArticleDescription.module.scss';
 
 const ArticleDescription = ({ title, tagList, desc, likes, checked, slug }) => {
   const dispatch = useDispatch();

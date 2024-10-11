@@ -10,6 +10,7 @@ import { ControlledCheckBox } from '../ControlledCheckBox';
 import { ControlledInput } from '../ControlledInput';
 import { signUp } from '../../redux/slices/userSlice';
 import { ErrorAlert } from '../ErrorAlert';
+import { ROUTES } from '../../routes';
 
 const schema = yup.object({
   username: yup
@@ -102,7 +103,7 @@ const SignUp = () => {
         <Button type="primary" htmlType="submit" disabled={!isValid} block>
           Create
         </Button>
-        Already have an account? <Link to="/sign-in">Sign In.</Link>
+        Already have an account? <Link to={ROUTES.SIGN_IN}>Sign In.</Link>
       </Form.Item>
     </Form>
   );

@@ -9,6 +9,7 @@ import * as yup from 'yup';
 import { ErrorAlert } from '../ErrorAlert';
 import { signIn } from '../../redux/slices/userSlice';
 import { ControlledInput } from '../ControlledInput';
+import { ROUTES } from '../../routes';
 
 const schema = yup.object({
   email: yup.string().required('Email is required').email('Is not in correct format'),
@@ -32,7 +33,7 @@ const SignIn = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const fromPage = location.state?.from?.pathname || '/';
+  const fromPage = location.state?.from?.pathname || ROUTES.HOME;
 
   useEffect(() => {
     if (user) {
@@ -70,7 +71,7 @@ const SignIn = () => {
         <Button type="primary" htmlType="submit" disabled={!isValid} block>
           Log in
         </Button>
-        Don`t have an account? <Link to="/sign-up">Sign Up.</Link>
+        Don`t have an account? <Link to={ROUTES.HOME}>Sign Up.</Link>
       </Form.Item>
     </Form>
   );
