@@ -71,7 +71,7 @@ const SignIn = () => {
         <Button type="primary" htmlType="submit" disabled={!isValid} block>
           Log in
         </Button>
-        Don`t have an account? <Link to={ROUTES.HOME}>Sign Up.</Link>
+        Don`t have an account? <Link to={ROUTES.SIGN_UP}>Sign Up.</Link>
       </Form.Item>
     </Form>
   );
