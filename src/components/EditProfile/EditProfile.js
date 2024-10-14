@@ -63,16 +63,17 @@ const EditProfile = () => {
   const onSubmit = async (data) => {
     const imageUrl = data.image || user.image;
     const isValidImage = await isImageValid(imageUrl);
-
+    const finalImageUrl = isValidImage ? imageUrl : placeholderImage;
+  
     const newUser = {
       user: {
         username: data.username || user.username,
         email: data.email.toLowerCase() || user.email,
         password: data.password || user.password,
-        image: isValidImage ? imageUrl : placeholderImage,
+        image: finalImageUrl,
       },
     };
-
+  
     dispatch(
       updateUser({
         token: user.token,
@@ -80,6 +81,7 @@ const EditProfile = () => {
       })
     );
   };
+  
 
   return (
     <Form layout="vertical" size="large" onFinish={handleSubmit(onSubmit)} initialValues={initialValues}>
