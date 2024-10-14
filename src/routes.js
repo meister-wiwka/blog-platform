@@ -1,11 +1,10 @@
 export const ROUTES = {
-    HOME: '/',
-    SIGN_IN: '/sign-in',
-    SIGN_UP: '/sign-up',
-    ARTICLES: '/articles',
-    NEW_ARTICLE: '/articles/new',
-    ARTICLE: '/articles/:slug',
-    EDIT_ARTICLE: '/articles/:slug/edit',
-    EDIT_PROFILE: '/edit-profile',
-  };
-  
+  HOME: '/',
+  SIGN_IN: '/sign-in',
+  SIGN_UP: '/sign-up',
+  ARTICLES: '/articles',
+  NEW_ARTICLE: '/new-article',
+  ARTICLE: '/articles/:slug',
+  ARTICLE_DETAILS: '/articles/:slug/*',
+  EDIT_PROFILE: '/profile',
+};

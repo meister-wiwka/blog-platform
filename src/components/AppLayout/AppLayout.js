@@ -34,17 +34,16 @@ const Menu = () => {
   if (user) {
     return (
       <>
-        <Link to="new-article">
+        <Link to={ROUTES.NEW_ARTICLE}>
           <ConfigProvider
             theme={{
               token: { colorPrimary: '#00b96b' },
             }}
-            e
           >
             <Button size="large">Create article</Button>
           </ConfigProvider>
         </Link>
-        <Link to="profile" style={{ textDecoration: 'none', color: 'rgba(0, 0, 0, 0.88)' }}>
+        <Link to={ROUTES.EDIT_PROFILE} style={{ textDecoration: 'none', color: 'rgba(0, 0, 0, 0.88)' }}>
           <div className={classes.profile}>
             <span className={classes.username}>{user.username}</span>
             <Avatar src={user.image} size={40} />
@@ -64,15 +63,14 @@ const Menu = () => {
 
   return (
     <>
-      <Link to="sign-in">
+      <Link to={ROUTES.SIGN_IN}>
         <Button size="large">Sign In</Button>
       </Link>
-      <Link to="sign-up">
+      <Link to={ROUTES.SIGN_UP}>
         <ConfigProvider
           theme={{
             token: { colorPrimary: '#00b96b' },
           }}
-          e
         >
           <Button size="large">Sign Up</Button>
         </ConfigProvider>

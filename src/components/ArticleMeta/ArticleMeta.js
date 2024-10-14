@@ -7,6 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { changeSuccess, deleteArticle } from '../../redux/slices/articlesSlice';
 
 import classes from './ArticleMeta.module.scss';
+import { ROUTES } from '../../routes';
 
 const { confirm } = Modal;
 
@@ -14,9 +15,9 @@ const ArticleMeta = ({ username, avatar, date, author, slug, single }) => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
   const { success } = useSelector((state) => state.articles);
-  let menu = null;
-
+  
   const navigate = useNavigate();
+
   useEffect(() => {
     if (success) {
       dispatch(changeSuccess());
@@ -26,8 +27,8 @@ const ArticleMeta = ({ username, avatar, date, author, slug, single }) => {
 
   const showConfirm = () => {
     confirm({
-      title: 'Do you Want to delete these article?',
-      content: 'Some descriptions',
+      title: 'Do you want to delete this article?',
+      content: 'This action cannot be undone.',
       onOk() {
         dispatch(deleteArticle({ slug, token: user.token }));
       },
@@ -35,18 +36,19 @@ const ArticleMeta = ({ username, avatar, date, author, slug, single }) => {
     });
   };
 
+  let menu = null;
+
   if (user && user.username === author && single) {
     menu = (
       <div className={classes.menu}>
         <Button danger onClick={showConfirm}>
           Delete
         </Button>
-        <Link to="edit">
+        <Link to={ROUTES.ARTICLE.replace(':slug', slug) + '/edit'}>
           <ConfigProvider
             theme={{
               token: { colorPrimary: '#00b96b' },
             }}
-            e
           >
             <Button>Edit</Button>
           </ConfigProvider>

@@ -9,6 +9,7 @@ import * as yup from 'yup';
 import { postArticle, changeSuccess, updateArticle } from '../../redux/slices/articlesSlice';
 import { ControlledInput } from '../ControlledInput';
 import { ControlledTextArea } from '../ControlledTextArea';
+import { ROUTES } from '../../routes';
 
 const schema = yup.object({
   title: yup.string().required('Please enter title'),
@@ -40,13 +41,13 @@ const NewArticle = ({ currentArticle = null }) => {
   useEffect(() => {
     if (success) {
       dispatch(changeSuccess());
-      navigate('/');
+      navigate(ROUTES.HOME);
     }
   }, [success, dispatch, navigate]);
 
   useEffect(() => {
     if (currentArticle && currentArticle.author.username !== user?.username) {
-      navigate(`/articles/${slug}`);
+      navigate(ROUTES.ARTICLE.replace(':slug', slug));
     }
   }, [currentArticle, navigate, slug, user?.username]);
 

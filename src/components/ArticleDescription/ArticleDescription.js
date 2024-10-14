@@ -7,6 +7,7 @@ import { rateArticle, unRateArticle } from '../../redux/slices/articlesSlice';
 import { TagsList } from '../TagsList';
 
 import classes from './ArticleDescription.module.scss';
+import { ROUTES } from '../../routes'; // Импортируем ROUTES
 
 const ArticleDescription = ({ title, tagList, desc, likes, checked, slug }) => {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ const ArticleDescription = ({ title, tagList, desc, likes, checked, slug }) => {
   return (
     <div className={classes.wrapper}>
       <div className={classes.header}>
-        <Link to={`/articles/${slug}`}>
+        <Link to={`${ROUTES.ARTICLE.replace(':slug', slug)}`}>
           <h2 className={classes.title}>{title}</h2>
         </Link>
         <div onClick={handleClick}>

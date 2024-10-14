@@ -8,6 +8,7 @@ import * as yup from 'yup';
 
 import { changeSucces, updateUser } from '../../redux/slices/userSlice';
 import { ControlledInput } from '../ControlledInput/';
+import { ROUTES } from '../../routes';
 
 const schema = yup.object().shape(
   {
@@ -47,7 +48,7 @@ const EditProfile = () => {
   useEffect(() => {
     if (success) {
       dispatch(changeSucces());
-      navigate('/');
+      navigate(ROUTES.HOME);
     }
   }, [success, dispatch, navigate]);
 
@@ -64,7 +65,7 @@ const EditProfile = () => {
     const imageUrl = data.image || user.image;
     const isValidImage = await isImageValid(imageUrl);
     const finalImageUrl = isValidImage ? imageUrl : placeholderImage;
-  
+
     const newUser = {
       user: {
         username: data.username || user.username,
@@ -73,7 +74,7 @@ const EditProfile = () => {
         image: finalImageUrl,
       },
     };
-  
+
     dispatch(
       updateUser({
         token: user.token,
@@ -81,7 +82,6 @@ const EditProfile = () => {
       })
     );
   };
-  
 
   return (
     <Form layout="vertical" size="large" onFinish={handleSubmit(onSubmit)} initialValues={initialValues}>

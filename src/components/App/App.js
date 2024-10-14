@@ -11,6 +11,7 @@ import { SignUpPage } from '../../pages/SignUpPage';
 import { AppLayout } from '../AppLayout';
 import { RequireAuth } from '../../hoc/RequireAuth';
 import { getUser } from '../../redux/slices/userSlice';
+import { ROUTES } from '../../routes';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -23,14 +24,14 @@ const App = () => {
 
   return (
     <Routes>
-      <Route path="/" element={<AppLayout />}>
+      <Route path={ROUTES.HOME} element={<AppLayout />}>
         <Route index element={<ArticlesPage />} />
-        <Route path="articles" element={<ArticlesPage />} />
-        <Route path="articles/:slug/*" element={<ArticlePage />} />
-        <Route path="sign-in" element={<SignInPage />} />
-        <Route path="sign-up" element={<SignUpPage />} />
+        <Route path={ROUTES.ARTICLES} element={<ArticlesPage />} />
+        <Route path={ROUTES.ARTICLE_DETAILS} element={<ArticlePage />} /> {/* Обновлено */}
+        <Route path={ROUTES.SIGN_IN} element={<SignInPage />} />
+        <Route path={ROUTES.SIGN_UP} element={<SignUpPage />} />
         <Route
-          path="profile"
+          path={ROUTES.EDIT_PROFILE}
           element={
             <RequireAuth>
               <EditProfilePage />
@@ -38,7 +39,7 @@ const App = () => {
           }
         />
         <Route
-          path="new-article"
+          path={ROUTES.NEW_ARTICLE}
           element={
             <RequireAuth>
               <NewArticlePage />
